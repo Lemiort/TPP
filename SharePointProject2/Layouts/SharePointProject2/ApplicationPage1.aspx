@@ -12,6 +12,8 @@
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
+
+    <!-- Meaterials table-->
     <div>
         <asp:Panel runat="server">
             <asp:Table ID="materials" runat="server">
@@ -25,6 +27,7 @@
             </asp:Table>
         </asp:Panel>
     </div>
+    <!--add material panel-->
     <div> 
         <asp:Panel runat="server">
            <asp:Label ID="Label1" runat="server" Text="Assortment"></asp:Label>
@@ -53,7 +56,7 @@
 
 
 
-
+    <!--equipment table-->
     <div>
         <asp:Panel runat="server">
             <asp:Table ID="equipments" runat="server">
@@ -67,7 +70,7 @@
             </asp:Table>
         </asp:Panel>
     </div>
-
+    <!-- add equipment panel-->
     <div> 
         <asp:Panel runat="server">
            <asp:Label ID="Label5" runat="server" Text="DetailNumber"></asp:Label>
@@ -91,6 +94,42 @@
             <br />
 
             <asp:Button ID="addEquipment" runat="server" Text="Add"  OnClick="addEquipment_Click"/>
+        </asp:Panel>
+    </div>
+
+    <!--Rigging table-->
+    <div>
+        <asp:Panel runat="server">
+            <asp:Table ID="riggings" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>RiggingId</asp:TableCell>
+                    <asp:TableCell>Name</asp:TableCell>
+                    <asp:TableCell>TypeOfTool</asp:TableCell>
+                    <asp:TableCell>Quantity</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add rigging panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label9" runat="server" Text="Name"></asp:Label>
+            <br />
+            <asp:TextBox ID="riggingName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label10" runat="server" Text="TypeOfTool"></asp:Label>
+            <br />
+            <asp:TextBox ID="riggingTypeOfTool" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label11" runat="server" Text="Quantity"></asp:Label>
+            <br />
+            <asp:TextBox ID="riggingQuantity" runat="server"></asp:TextBox>
+            <br />
+
+
+            <asp:Button ID="addRigging" runat="server" Text="Add"  OnClick="addRigging_Click"/>
         </asp:Panel>
     </div>
 

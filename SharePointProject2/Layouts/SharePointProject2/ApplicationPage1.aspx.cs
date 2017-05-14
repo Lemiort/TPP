@@ -115,6 +115,48 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 equipments.Rows.Add(row);
             }
+
+
+            //add rigging
+            foreach (var rig in bd.Riggings)
+            {
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = rig.RiggingId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = rig.Name;
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = rig.TypeOfTool;
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = rig.Quantity.ToString();
+                row.Cells.Add(cell4);
+
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.Riggings.Attach(rig);
+                    lbd.Entry(rig).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell5 = new TableCell();
+                cell5.Controls.Add(button);
+                row.Cells.Add(cell5);
+
+                riggings.Rows.Add(row);
+            }
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -140,6 +182,19 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 Department = equipmentDepartment.Text,
                 DetailNumber = int.Parse(equipmentDetailNumber.Text),
                 Quantity = int.Parse(equipmentQuantity.Text)
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addRigging_Click(object sender, EventArgs e)
+        {
+            TPP bd = new TPP();
+            bd.Riggings.Add(new Rigging()
+            {
+                Name = this.riggingName.Text,
+                Quantity = int.Parse(this.riggingQuantity.Text),
+                TypeOfTool = this.riggingTypeOfTool.Text
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);
