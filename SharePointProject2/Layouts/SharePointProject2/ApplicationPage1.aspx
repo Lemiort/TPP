@@ -170,6 +170,55 @@
         </asp:Panel>
     </div>
 
+
+     <!--TechnologicalProcesses  table-->
+    <div>
+        <asp:Panel runat="server">
+            <asp:Table ID="technologicalProcesses" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>TechProcId</asp:TableCell>
+                    <asp:TableCell>Name</asp:TableCell>
+                    <asp:TableCell>OperationId</asp:TableCell>
+                    <asp:TableCell>MaterialId</asp:TableCell>
+                    <asp:TableCell>TypeByExecution</asp:TableCell>
+                    <asp:TableCell>ActNumber</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add TechnologicalProcesses panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label15" runat="server" Text="Name"></asp:Label>
+            <br />
+            <asp:TextBox ID="technologicalProcessName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label16" runat="server" Text="Operation"></asp:Label>
+            <br />
+            <asp:DropDownList ID="technologicalProcessOperation" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label17" runat="server" Text="Material"></asp:Label>
+            <br />
+            <asp:DropDownList ID="technologicalProcessMaterial" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label18" runat="server" Text="TypeByExecution"></asp:Label>
+            <br />
+            <asp:TextBox ID="technologicalProcessTypeByExecution" runat="server"></asp:TextBox>
+            <br />
+
+             <asp:Label ID="Label19" runat="server" Text="ActNumber"></asp:Label>
+            <br />
+            <asp:TextBox ID="technologicalProcessNumber" runat="server"></asp:TextBox>
+            <br />
+
+
+            <asp:Button ID="technologicalProcessAdd" runat="server" Text="Add"  OnClick="technologicalProcessAdd_Click"/>
+        </asp:Panel>
+    </div>
+
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

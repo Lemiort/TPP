@@ -30,6 +30,10 @@ namespace SharePointProject2.Layouts.SharePointProject2
             //add materials
             foreach(var mat in bd.Materials)
             {
+                //fill dropdowns
+                technologicalProcessMaterial.Items.Add(
+                    new ListItem(mat.MaterialId.ToString(), mat.MaterialId.ToString()));
+
                 TableRow row = new TableRow();
 
                 TableCell cell1 = new TableCell();
@@ -72,7 +76,7 @@ namespace SharePointProject2.Layouts.SharePointProject2
             }
 
 
-
+            //fill Equipment table
             foreach (var eqip in bd.Equipments)
             {
                 TableRow row = new TableRow();
@@ -199,6 +203,55 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 transitions.Rows.Add(row);
             }
+
+            //fill TechnologicalProcesses
+            foreach (var tp in bd.TechnologicalProcesseses)
+            {
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = tp.TechProcId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = tp.Name;
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = tp.OperationId.ToString();
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = tp.MaterialId.ToString();
+                row.Cells.Add(cell4);
+
+                TableCell cell5 = new TableCell();
+                cell5.Text = tp.TypeByExecution;
+                row.Cells.Add(cell5);
+
+                TableCell cell6 = new TableCell();
+                cell6.Text = tp.ActNumber.ToString();
+                row.Cells.Add(cell6);
+
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.TechnologicalProcesseses.Attach(tp);
+                    lbd.Entry(tp).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell7 = new TableCell();
+                cell5.Controls.Add(button);
+                row.Cells.Add(cell7);
+
+                technologicalProcesses.Rows.Add(row);
+            }
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -251,6 +304,21 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 Keyword = this.transitionKeyword.Text,
                 TransitionNumber = int.Parse(this.transitionTransitionNumber.Text),
                 TransitionType = this.transitionTransitionType.Text
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void technologicalProcessAdd_Click(object sender, EventArgs e)
+        {
+            TPP bd = new TPP();
+            bd.TechnologicalProcesseses.Add(new TechnologicalProcesses()
+            {
+                Name = this.technologicalProcessName.Text,
+                Operation = bd.Operations.Find(int.Parse(this.technologicalProcessOperation.SelectedValue)),
+                Material = bd.Materials.Find(int.Parse(this.technologicalProcessMaterial.SelectedValue)),
+                TypeByExecution = this.technologicalProcessTypeByExecution.Text,
+                ActNumber = int.Parse(this.technologicalProcessNumber.Text)
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);

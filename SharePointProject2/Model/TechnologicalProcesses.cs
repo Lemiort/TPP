@@ -17,8 +17,10 @@ namespace SharePointProject2.Model
 
         public string Name { get; set; }
 
+        //fk
         public int OperationId { get; set; }
 
+        //fk
         public int MaterialId { get; set; }
 
         public string TypeByExecution { get; set; }
