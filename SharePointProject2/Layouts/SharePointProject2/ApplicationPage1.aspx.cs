@@ -79,6 +79,10 @@ namespace SharePointProject2.Layouts.SharePointProject2
             //fill Equipment table
             foreach (var eqip in bd.Equipments)
             {
+                //add to dropdown
+                operationEquipment.Items.Add(
+                    new ListItem(eqip.EquipmentId.ToString(), eqip.EquipmentId.ToString()));
+
                 TableRow row = new TableRow();
 
                 TableCell cell1 = new TableCell();
@@ -124,6 +128,10 @@ namespace SharePointProject2.Layouts.SharePointProject2
             //add rigging
             foreach (var rig in bd.Riggings)
             {
+                //add to dropdowns
+                operationRigging.Items.Add(
+                    new ListItem(rig.RiggingId.ToString(), rig.RiggingId.ToString()));
+
                 TableRow row = new TableRow();
 
                 TableCell cell1 = new TableCell();
@@ -163,9 +171,84 @@ namespace SharePointProject2.Layouts.SharePointProject2
             }
 
 
+
+            //fill operations table
+            foreach (var oper in bd.Operations)
+            {
+                //add to dropdowns
+                technologicalProcessOperation.Items.Add(
+                    new ListItem(oper.OperationId.ToString(), oper.OperationId.ToString()));
+
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = oper.OperationId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = oper.Name;
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = oper.Number.ToString();
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = oper.TransitionId.ToString();
+                row.Cells.Add(cell4);
+
+                TableCell cell5 = new TableCell();
+                cell5.Text = oper.TransitionName;
+                row.Cells.Add(cell5);
+
+
+                TableCell cell6 = new TableCell();
+                cell6.Text = oper.EquipmentId.ToString();
+                row.Cells.Add(cell6);
+
+                TableCell cell7 = new TableCell();
+                cell7.Text = oper.RiggingId.ToString();
+                row.Cells.Add(cell7);
+
+                TableCell cell8 = new TableCell();
+                cell8.Text = oper.DepartmentNumber.ToString();
+                row.Cells.Add(cell8);
+
+                TableCell cell9 = new TableCell();
+                cell9.Text = oper.SiteNumber.ToString();
+                row.Cells.Add(cell9);
+
+                TableCell cell10 = new TableCell();
+                cell10.Text = oper.WorkplaceNumber.ToString();
+                row.Cells.Add(cell10);
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.Operations.Attach(oper);
+                    lbd.Entry(oper).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell11 = new TableCell();
+                cell11.Controls.Add(button);
+                row.Cells.Add(cell11);
+
+                operations.Rows.Add(row);
+            }
+
+
             //add transitions
             foreach (var trans in bd.Transitions)
             {
+                //add to dropdowns
+                operationTransition.Items.Add(
+                    new ListItem(trans.TransitionId.ToString(), trans.TransitionId.ToString()));
+
                 TableRow row = new TableRow();
 
                 TableCell cell1 = new TableCell();
@@ -319,6 +402,25 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 Material = bd.Materials.Find(int.Parse(this.technologicalProcessMaterial.SelectedValue)),
                 TypeByExecution = this.technologicalProcessTypeByExecution.Text,
                 ActNumber = int.Parse(this.technologicalProcessNumber.Text)
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addOperation_Click(object sender, EventArgs e)
+        {
+            TPP bd = new TPP();
+            bd.Operations.Add(new Operation()
+            {
+                DepartmentNumber = int.Parse(this.operationDepartmentNumber.Text),
+                Equipment = bd.Equipments.Find(int.Parse(this.operationEquipment.SelectedValue)),
+                Name = this.operationName.Text,
+                Number = int.Parse(this.operationNumber.Text),
+                Rigging = bd.Riggings.Find(int.Parse(this.operationRigging.SelectedValue)),
+                SiteNumber = int.Parse(this.operationSiteNumber.Text),
+                Transition = bd.Transitions.Find(int.Parse(this.operationTransition.SelectedValue)),
+                TransitionName = this.operationTransitionName.Text,
+                WorkplaceNumber = int.Parse(operationWorkplaceNumber.Text)
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);

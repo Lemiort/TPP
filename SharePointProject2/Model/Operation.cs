@@ -16,12 +16,15 @@ namespace SharePointProject2.Model
 
         public int Number { get; set; }
 
+        //fk
         public int TransitionId { get; set; }
 
         public string TransitionName { get; set; }
 
+        //fk
         public int EquipmentId { get; set; }
 
+        //fk
         public int RiggingId { get; set; }
 
         public int DepartmentNumber { get; set; }

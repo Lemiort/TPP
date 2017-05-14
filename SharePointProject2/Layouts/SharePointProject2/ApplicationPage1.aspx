@@ -147,7 +147,7 @@
             </asp:Table>
         </asp:Panel>
     </div>
-    <!-- add rigging panel-->
+    <!-- add transitions panel-->
     <div> 
         <asp:Panel runat="server">
            <asp:Label ID="Label12" runat="server" Text="TransitionNumber"></asp:Label>
@@ -167,6 +167,80 @@
 
 
             <asp:Button ID="addTransition" runat="server" Text="Add"  OnClick="addTransition_Click"/>
+        </asp:Panel>
+    </div>
+
+
+
+    <!--Operation table-->
+    <div>
+        <asp:Panel runat="server">
+            <asp:Table ID="operations" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>OperationId</asp:TableCell>
+                    <asp:TableCell>Name</asp:TableCell>
+                    <asp:TableCell>Number</asp:TableCell>
+                    <asp:TableCell>TransitionId</asp:TableCell>
+                    <asp:TableCell>TransitionName</asp:TableCell>
+                    <asp:TableCell>EquipmentId</asp:TableCell>
+                    <asp:TableCell>RiggingId</asp:TableCell>
+                    <asp:TableCell>DepartmentNumber</asp:TableCell>
+                    <asp:TableCell>SiteNumber</asp:TableCell>
+                    <asp:TableCell>WorkplaceNumber</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add operation panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label20" runat="server" Text="Name"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label21" runat="server" Text="Number"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationNumber" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label22" runat="server" Text="Transition"></asp:Label>
+            <br />
+            <asp:DropDownList ID="operationTransition" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label23" runat="server" Text="TransitionName"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationTransitionName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label24" runat="server" Text="Equipment"></asp:Label>
+            <br />
+            <asp:DropDownList ID="operationEquipment" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label25" runat="server" Text="Rigging"></asp:Label>
+            <br />
+            <asp:DropDownList ID="operationRigging" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label26" runat="server" Text="DepartmentNumber"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationDepartmentNumber" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label27" runat="server" Text="SiteNumber"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationSiteNumber" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label28" runat="server" Text="WorkplaceNumber"></asp:Label>
+            <br />
+            <asp:TextBox ID="operationWorkplaceNumber" runat="server"></asp:TextBox>
+            <br />
+
+
+            <asp:Button ID="addOperation" runat="server" Text="Add"  OnClick="addOperation_Click"/>
         </asp:Panel>
     </div>
 
