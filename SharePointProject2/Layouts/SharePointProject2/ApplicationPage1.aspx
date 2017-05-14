@@ -133,6 +133,43 @@
         </asp:Panel>
     </div>
 
+
+     <!--Transitions table-->
+    <div>
+        <asp:Panel runat="server">
+            <asp:Table ID="transitions" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>TransitionId</asp:TableCell>
+                    <asp:TableCell>TransitionNumber</asp:TableCell>
+                    <asp:TableCell>Keyword</asp:TableCell>
+                    <asp:TableCell>TransitionType</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add rigging panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label12" runat="server" Text="TransitionNumber"></asp:Label>
+            <br />
+            <asp:TextBox ID="transitionTransitionNumber" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label13" runat="server" Text="Keyword"></asp:Label>
+            <br />
+            <asp:TextBox ID="transitionKeyword" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label14" runat="server" Text="TransitionType"></asp:Label>
+            <br />
+            <asp:TextBox ID="transitionTransitionType" runat="server"></asp:TextBox>
+            <br />
+
+
+            <asp:Button ID="addTransition" runat="server" Text="Add"  OnClick="addTransition_Click"/>
+        </asp:Panel>
+    </div>
+
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

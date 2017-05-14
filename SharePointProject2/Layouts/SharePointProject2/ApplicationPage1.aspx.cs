@@ -157,6 +157,48 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 riggings.Rows.Add(row);
             }
+
+
+            //add transitions
+            foreach (var trans in bd.Transitions)
+            {
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = trans.TransitionId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = trans.TransitionNumber.ToString();
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = trans.Keyword;
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = trans.TransitionType;
+                row.Cells.Add(cell4);
+
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.Transitions.Attach(trans);
+                    lbd.Entry(trans).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell5 = new TableCell();
+                cell5.Controls.Add(button);
+                row.Cells.Add(cell5);
+
+                transitions.Rows.Add(row);
+            }
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -195,6 +237,20 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 Name = this.riggingName.Text,
                 Quantity = int.Parse(this.riggingQuantity.Text),
                 TypeOfTool = this.riggingTypeOfTool.Text
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addTransition_Click(object sender, EventArgs e)
+        {
+
+            TPP bd = new TPP();
+            bd.Transitions.Add(new Transition()
+            {
+                Keyword = this.transitionKeyword.Text,
+                TransitionNumber = int.Parse(this.transitionTransitionNumber.Text),
+                TransitionType = this.transitionTransitionType.Text
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);
