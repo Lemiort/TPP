@@ -27,7 +27,7 @@ namespace SharePointProject2.Layouts.SharePointProject2
             TPP bd = new TPP();
 
             
-
+            //add materials
             foreach(var mat in bd.Materials)
             {
                 TableRow row = new TableRow();
@@ -70,8 +70,51 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 materials.Rows.Add(row);
             }
-            
-            
+
+
+
+            foreach (var eqip in bd.Equipments)
+            {
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = eqip.EquipmentId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = eqip.DetailNumber.ToString();
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = eqip.Name;
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = eqip.Quantity.ToString();
+                row.Cells.Add(cell4);
+
+                TableCell cell5 = new TableCell();
+                cell5.Text = eqip.Department;
+                row.Cells.Add(cell5);
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.Equipments.Attach(eqip);
+                    lbd.Entry(eqip).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell6 = new TableCell();
+                cell6.Controls.Add(button);
+                row.Cells.Add(cell6);
+
+                equipments.Rows.Add(row);
+            }
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -79,10 +122,24 @@ namespace SharePointProject2.Layouts.SharePointProject2
             TPP bd = new TPP();
             bd.Materials.Add(new Material()
             {
-                Assortment = this.Assortment.Text,
-                DesignOfStandard = this.DesignOfStandard.Text,
-                Name = this.Name.Text,
-                Stamp = this.Stamp.Text
+                Assortment = this.materialAssortment.Text,
+                DesignOfStandard = this.materialDesignOfStandard.Text,
+                Name = this.materialName.Text,
+                Stamp = this.materialStamp.Text
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addEquipment_Click(object sender, EventArgs e)
+        {
+            TPP bd = new TPP();
+            bd.Equipments.Add(new Equipment()
+            {
+                Name = equipmentName.Text,
+                Department = equipmentDepartment.Text,
+                DetailNumber = int.Parse(equipmentDetailNumber.Text),
+                Quantity = int.Parse(equipmentQuantity.Text)
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);

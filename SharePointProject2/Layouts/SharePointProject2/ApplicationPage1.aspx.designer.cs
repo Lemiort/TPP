@@ -31,13 +31,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Assortment элемент управления.
+        /// materialAssortment элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Assortment;
+        protected global::System.Web.UI.WebControls.TextBox materialAssortment;
         
         /// <summary>
         /// Label2 элемент управления.
@@ -49,13 +49,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Name элемент управления.
+        /// materialName элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.TextBox materialName;
         
         /// <summary>
         /// Label3 элемент управления.
@@ -67,13 +67,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Stamp элемент управления.
+        /// materialStamp элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Stamp;
+        protected global::System.Web.UI.WebControls.TextBox materialStamp;
         
         /// <summary>
         /// Label4 элемент управления.
@@ -85,21 +85,111 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// DesignOfStandard элемент управления.
+        /// materialDesignOfStandard элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DesignOfStandard;
+        protected global::System.Web.UI.WebControls.TextBox materialDesignOfStandard;
         
         /// <summary>
-        /// AddButton элемент управления.
+        /// materialAddButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddButton;
+        protected global::System.Web.UI.WebControls.Button materialAddButton;
+        
+        /// <summary>
+        /// equipments элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table equipments;
+        
+        /// <summary>
+        /// Label5 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// equipmentDetailNumber элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox equipmentDetailNumber;
+        
+        /// <summary>
+        /// Label6 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// equipmentName элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox equipmentName;
+        
+        /// <summary>
+        /// Label7 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
+        /// equipmentQuantity элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox equipmentQuantity;
+        
+        /// <summary>
+        /// Label8 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
+        /// equipmentDepartment элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox equipmentDepartment;
+        
+        /// <summary>
+        /// addEquipment элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addEquipment;
     }
 }
