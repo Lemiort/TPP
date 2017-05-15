@@ -310,8 +310,8 @@
                     <asp:TableCell>RouteId</asp:TableCell>
                     <asp:TableCell>TechProcId</asp:TableCell>
                     <asp:TableCell>Number</asp:TableCell>
-                    <asp:TableCell>NameTechProc</asp:TableCell>
                     <asp:TableCell>NameOfDeveloper</asp:TableCell>
+                    <asp:TableCell>NameTechProc</asp:TableCell>
                     <asp:TableCell>DetailsDesignation</asp:TableCell>
                     <asp:TableCell>DetailsName</asp:TableCell>
                 </asp:TableHeaderRow>
@@ -333,7 +333,7 @@
 
             <asp:Label ID="Label32" runat="server" Text="NameOfDeveloper"></asp:Label>
             <br />
-            <asp:TextBox ID="routeNameOfDeveloper" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeNameOfDeveloper" runat="server"></asp:DropDownList>
             <br />
 
             <asp:Label ID="Label33" runat="server" Text="DetailsDesignation"></asp:Label>
@@ -384,28 +384,28 @@
 
             <asp:Label ID="Label36" runat="server" Text="Developer"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeCardDeveloper" runat="server"></asp:DropDownList>
             <br />
 
             <asp:Label ID="Label37" runat="server" Text="Checked"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeCardChecked" runat="server"></asp:DropDownList>
             <br />
 
             <asp:Label ID="Label38" runat="server" Text="Agreed"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeCardAgreed" runat="server"></asp:DropDownList>
             <br />
 
 
             <asp:Label ID="Label39" runat="server" Text="Approved"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeCardApproved" runat="server"></asp:DropDownList>
             <br />
 
             <asp:Label ID="Label40" runat="server" Text="NormСontroller"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="routeCardNormController" runat="server"></asp:DropDownList>
             <br />
 
             <asp:Button ID="addRouteCard" runat="server" Text="Add"  OnClick="addRouteCard_Click"/>

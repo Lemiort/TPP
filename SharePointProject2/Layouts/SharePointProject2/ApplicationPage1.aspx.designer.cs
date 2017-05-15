@@ -748,7 +748,7 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox routeNameOfDeveloper;
+        protected global::System.Web.UI.WebControls.DropDownList routeNameOfDeveloper;
         
         /// <summary>
         /// Label33 элемент управления.
@@ -859,13 +859,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label36;
         
         /// <summary>
-        /// TextBox2 элемент управления.
+        /// routeCardDeveloper элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.DropDownList routeCardDeveloper;
         
         /// <summary>
         /// Label37 элемент управления.
@@ -877,13 +877,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label37;
         
         /// <summary>
-        /// TextBox3 элемент управления.
+        /// routeCardChecked элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.DropDownList routeCardChecked;
         
         /// <summary>
         /// Label38 элемент управления.
@@ -895,13 +895,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label38;
         
         /// <summary>
-        /// TextBox4 элемент управления.
+        /// routeCardAgreed элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.DropDownList routeCardAgreed;
         
         /// <summary>
         /// Label39 элемент управления.
@@ -913,13 +913,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label39;
         
         /// <summary>
-        /// TextBox5 элемент управления.
+        /// routeCardApproved элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.DropDownList routeCardApproved;
         
         /// <summary>
         /// Label40 элемент управления.
@@ -931,13 +931,13 @@ namespace SharePointProject2.Layouts.SharePointProject2 {
         protected global::System.Web.UI.WebControls.Label Label40;
         
         /// <summary>
-        /// TextBox6 элемент управления.
+        /// routeCardNormController элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.DropDownList routeCardNormController;
         
         /// <summary>
         /// addRouteCard элемент управления.

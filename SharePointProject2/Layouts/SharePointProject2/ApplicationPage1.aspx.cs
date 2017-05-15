@@ -28,8 +28,30 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
             SPSite site = SPControl.GetContextSite(Context);
             SPWeb web = site.OpenWeb();
-            SPUser currentUser = web.CurrentUser;
-            this.routeNameOfDeveloper.Text = currentUser.LoginName;
+            //SPUser currentUser = web.CurrentUser;
+            //this.routeNameOfDeveloper.Text = currentUser.LoginName;
+
+            //SPUser developer = web.Users.GetByID(route.NameOfDeveloper);
+            //cell4.Text = developer.LoginName;
+            SPGroupCollection collGroups = web.Groups;
+            foreach (SPGroup oGroup in collGroups)
+            {
+                foreach (SPUser user in oGroup.Users)
+                {
+                    routeNameOfDeveloper.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                    routeCardAgreed.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                    routeCardApproved.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                    routeCardChecked.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                    routeCardDeveloper.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                    routeCardNormController.Items.Add(
+                        new ListItem(user.LoginName, user.ID.ToString()));
+                }
+            }
 
 
             //add materials
@@ -369,9 +391,13 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 row.Cells.Add(cell3);
 
                 TableCell cell4 = new TableCell();
+
+                SPUserCollection users = web.SiteUsers;
+                SPUser user = users.GetByID(route.NameOfDeveloper);
                 //SPUser developer = web.Users.GetByID(route.NameOfDeveloper);
                 //cell4.Text = developer.LoginName;
-                cell4.Text = route.NameOfDeveloper.ToString();
+                //cell4.Text = route.NameOfDeveloper.ToString();
+                cell4.Text = user.LoginName;
                 row.Cells.Add(cell4);
 
                 TableCell cell5 = new TableCell();
@@ -421,23 +447,34 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 row.Cells.Add(cell3);
 
                 TableCell cell4 = new TableCell();
-                cell4.Text = rc.Developer.ToString();
+                SPUserCollection users = web.SiteUsers;
+                SPUser user = users.GetByID(rc.Developer);
+                //cell4.Text = rc.Developer.ToString();
+                cell4.Text = user.LoginName;
                 row.Cells.Add(cell4);
 
                 TableCell cell5 = new TableCell();
-                cell5.Text = rc.Checked.ToString();
+                //cell5.Text = rc.Checked.ToString();
+                user = users.GetByID(rc.Checked);
+                cell5.Text = user.LoginName;
                 row.Cells.Add(cell5);
 
                 TableCell cell6 = new TableCell();
-                cell6.Text = rc.Agreed.ToString();
+                //cell6.Text = rc.Agreed.ToString();
+                user = users.GetByID(rc.Agreed);
+                cell6.Text = user.LoginName;
                 row.Cells.Add(cell6);
 
                 TableCell cell7 = new TableCell();
-                cell7.Text = rc.Approved.ToString();
+                //cell7.Text = rc.Approved.ToString();
+                user = users.GetByID(rc.Approved);
+                cell7.Text = user.LoginName;
                 row.Cells.Add(cell7);
 
                 TableCell cell8 = new TableCell();
-                cell8.Text = rc.NormСontroller.ToString();
+                //cell8.Text = rc.NormСontroller.ToString();
+                user = users.GetByID(rc.NormСontroller);
+                cell8.Text = user.LoginName;
                 row.Cells.Add(cell8);
 
                 Button button = new Button();
@@ -551,15 +588,15 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
         protected void addRoute_Click(object sender, EventArgs e)
         {
-            SPWeb theSite = SPControl.GetContextWeb(Context);
-            SPUser theUser = theSite.CurrentUser;
+            //SPWeb theSite = SPControl.GetContextWeb(Context);
+            //SPUser theUser = theSite.CurrentUser;
             //string strUserName = theUser.LoginName;
 
             TPP bd = new TPP();
             bd.Routes.Add(new Route()
             {
                 TechnologicalProcesses = bd.TechnologicalProcesseses.Find(int.Parse(this.routeTechProc.SelectedValue)),
-                NameOfDeveloper = theUser.ID,
+                NameOfDeveloper = int.Parse(this.routeNameOfDeveloper.SelectedValue),
                 DetailsDesignation = this.routeDetailsDesignation.Text,
                 DetailsName = this.routeDetailsName.Text
             });
