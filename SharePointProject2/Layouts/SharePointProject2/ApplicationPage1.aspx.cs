@@ -613,7 +613,19 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
         protected void addRouteCard_Click(object sender, EventArgs e)
         {
-
+            TPP bd = new TPP();
+            bd.RouteCars.Add(new RouteCar()
+            {
+                Agreed = int.Parse(this.routeCardAgreed.SelectedValue),
+                Approved = int.Parse(this.routeCardApproved.SelectedValue),
+                Checked = int.Parse(this.routeCardChecked.SelectedValue),
+                CompanyName = this.routeCardComopanyName.Text,
+                Developer = int.Parse(this.routeCardDeveloper.SelectedValue),
+                NormСontroller = int.Parse(this.routeCardNormController.SelectedValue),
+                Route = bd.Routes.Find(int.Parse(this.routeCardRoute.SelectedValue))
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
