@@ -26,9 +26,14 @@ namespace SharePointProject2.Layouts.SharePointProject2
             bd.SaveChanges();*/
             TPP bd = new TPP();
 
-            
+            SPSite site = SPControl.GetContextSite(Context);
+            SPWeb web = site.OpenWeb();
+            SPUser currentUser = web.CurrentUser;
+            this.routeNameOfDeveloper.Text = currentUser.LoginName;
+
+
             //add materials
-            foreach(var mat in bd.Materials)
+            foreach (var mat in bd.Materials)
             {
                 //fill dropdowns
                 technologicalProcessMaterial.Items.Add(
@@ -290,6 +295,10 @@ namespace SharePointProject2.Layouts.SharePointProject2
             //fill TechnologicalProcesses
             foreach (var tp in bd.TechnologicalProcesseses)
             {
+                //add to routes
+                this.routeTechProc.Items.Add(
+                    new ListItem(tp.TechProcId.ToString(), tp.TechProcId.ToString()));
+
                 TableRow row = new TableRow();
 
                 TableCell cell1 = new TableCell();
@@ -335,6 +344,59 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 technologicalProcesses.Rows.Add(row);
             }
+
+
+            //fill route
+            foreach (var route in bd.Routes)
+            {
+
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = route.RouteId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = route.TechProcId.ToString();
+                row.Cells.Add(cell2);
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Text = route.NameTechProc;
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                //SPUser developer = web.Users.GetByID(route.NameOfDeveloper);
+                //cell4.Text = developer.LoginName;
+                cell4.Text = route.NameOfDeveloper.ToString();
+                row.Cells.Add(cell4);
+
+                TableCell cell5 = new TableCell();
+                cell5.Text = route.DetailsDesignation;
+                row.Cells.Add(cell5);
+
+                TableCell cell6 = new TableCell();
+                cell6.Text = route.DetailsName;
+                row.Cells.Add(cell6);
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.Routes.Attach(route);
+                    lbd.Entry(route).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell7 = new TableCell();
+                cell7.Controls.Add(button);
+                row.Cells.Add(cell7);
+
+                routes.Rows.Add(row);
+            }
+           
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -421,6 +483,24 @@ namespace SharePointProject2.Layouts.SharePointProject2
                 Transition = bd.Transitions.Find(int.Parse(this.operationTransition.SelectedValue)),
                 TransitionName = this.operationTransitionName.Text,
                 WorkplaceNumber = int.Parse(operationWorkplaceNumber.Text)
+            });
+            bd.SaveChanges();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addRoute_Click(object sender, EventArgs e)
+        {
+            SPWeb theSite = SPControl.GetContextWeb(Context);
+            SPUser theUser = theSite.CurrentUser;
+            //string strUserName = theUser.LoginName;
+
+            TPP bd = new TPP();
+            bd.Routes.Add(new Route()
+            {
+                TechnologicalProcesses = bd.TechnologicalProcesseses.Find(int.Parse(this.routeTechProc.SelectedValue)),
+                NameOfDeveloper = theUser.ID,
+                DetailsDesignation = this.routeDetailsDesignation.Text,
+                DetailsName = this.routeDetailsName.Text
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);

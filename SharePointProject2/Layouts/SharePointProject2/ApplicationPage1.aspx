@@ -293,6 +293,55 @@
         </asp:Panel>
     </div>
 
+
+
+    <!--route table-->
+    <div>
+        <asp:Panel runat="server">
+            <asp:Table ID="routes" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>RouteId</asp:TableCell>
+                    <asp:TableCell>TechProcId</asp:TableCell>
+                    <asp:TableCell>Number</asp:TableCell>
+                    <asp:TableCell>NameTechProc</asp:TableCell>
+                    <asp:TableCell>NameOfDeveloper</asp:TableCell>
+                    <asp:TableCell>DetailsDesignation</asp:TableCell>
+                    <asp:TableCell>DetailsName</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add route panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label29" runat="server" Text="TechProc"></asp:Label>
+            <br />
+            <asp:DropDownList ID="routeTechProc" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label31" runat="server" Text="NameTechProc"></asp:Label>
+            <br />
+            <asp:TextBox ID="routeNameTechProc" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label32" runat="server" Text="NameOfDeveloper"></asp:Label>
+            <br />
+            <asp:TextBox ID="routeNameOfDeveloper" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label33" runat="server" Text="DetailsDesignation"></asp:Label>
+            <br />
+            <asp:TextBox ID="routeDetailsDesignation" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label34" runat="server" Text="DetailsName"></asp:Label>
+            <br />
+            <asp:TextBox ID="routeDetailsName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Button ID="addRoute" runat="server" Text="Add"  OnClick="addRoute_Click"/>
+        </asp:Panel>
+    </div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
