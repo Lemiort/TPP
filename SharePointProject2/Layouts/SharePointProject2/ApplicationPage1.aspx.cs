@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebControls;
 using SharePointProject2.Model;
 using System.Web.UI.WebControls;
+using System.Collections.Specialized;
 
 namespace SharePointProject2.Layouts.SharePointProject2
 {
@@ -28,8 +29,14 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
             SPSite site = SPControl.GetContextSite(Context);
             SPWeb web = site.OpenWeb();
-            //SPUser currentUser = web.CurrentUser;
-            //this.routeNameOfDeveloper.Text = currentUser.LoginName;
+
+            /*SPListCollection collList = web.Lists;
+
+            foreach (var oList in collList)
+            {
+                Console.WriteLine("Title: {0} Created: {1}", oList., oList.Created.ToString());
+            }*/
+
 
             //SPUser developer = web.Users.GetByID(route.NameOfDeveloper);
             //cell4.Text = developer.LoginName;
