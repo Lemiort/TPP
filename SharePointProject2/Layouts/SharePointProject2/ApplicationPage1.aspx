@@ -15,6 +15,7 @@
 
     <!-- Meaterials table-->
     <div>
+        <asp:Label ID="Label41" runat="server" Text="Materials" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="materials" runat="server">
                 <asp:TableHeaderRow>
@@ -58,6 +59,7 @@
 
     <!--equipment table-->
     <div>
+        <asp:Label ID="Label42" runat="server" Text="Equipment" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="equipments" runat="server">
                 <asp:TableHeaderRow>
@@ -99,6 +101,7 @@
 
     <!--Rigging table-->
     <div>
+        <asp:Label ID="Label43" runat="server" Text="Rigging" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="riggings" runat="server">
                 <asp:TableHeaderRow>
@@ -136,6 +139,7 @@
 
      <!--Transitions table-->
     <div>
+        <asp:Label ID="Label44" runat="server" Text="Transitions" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="transitions" runat="server">
                 <asp:TableHeaderRow>
@@ -174,6 +178,7 @@
 
     <!--Operation table-->
     <div>
+        <asp:Label ID="Label45" runat="server" Text="Operations" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="operations" runat="server">
                 <asp:TableHeaderRow>
@@ -247,6 +252,7 @@
 
      <!--TechnologicalProcesses  table-->
     <div>
+        <asp:Label ID="Label46" runat="server" Text="TechnologicalProcesses" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="technologicalProcesses" runat="server">
                 <asp:TableHeaderRow>
@@ -297,6 +303,7 @@
 
     <!--route table-->
     <div>
+        <asp:Label ID="Label47" runat="server" Text="Routes" Font-Size="XX-Large"></asp:Label>
         <asp:Panel runat="server">
             <asp:Table ID="routes" runat="server">
                 <asp:TableHeaderRow>
@@ -340,6 +347,68 @@
             <br />
 
             <asp:Button ID="addRoute" runat="server" Text="Add"  OnClick="addRoute_Click"/>
+        </asp:Panel>
+    </div>
+
+
+    <!--routeCard table-->
+    <div>
+        <asp:Label ID="Label48" runat="server" Text="Route cards" Font-Size="XX-Large"></asp:Label>
+        <asp:Panel runat="server">
+            <asp:Table ID="routeCards" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableCell>RouteCarId</asp:TableCell>
+                    <asp:TableCell>RouteId</asp:TableCell>
+                    <asp:TableCell>CompanyName</asp:TableCell>
+                    <asp:TableCell>Developer</asp:TableCell>
+                    <asp:TableCell>Checked</asp:TableCell>
+                    <asp:TableCell>Agreed</asp:TableCell>
+                    <asp:TableCell>Approved</asp:TableCell>
+                    <asp:TableCell>NormСontroller</asp:TableCell>
+                </asp:TableHeaderRow>
+            </asp:Table>
+        </asp:Panel>
+    </div>
+    <!-- add routeCard panel-->
+    <div> 
+        <asp:Panel runat="server">
+           <asp:Label ID="Label30" runat="server" Text="RouteId"></asp:Label>
+            <br />
+            <asp:DropDownList ID="routeCardRoute" runat="server"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label35" runat="server" Text="CompanyName"></asp:Label>
+            <br />
+            <asp:TextBox ID="routeCardComopanyName" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label36" runat="server" Text="Developer"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label37" runat="server" Text="Checked"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label38" runat="server" Text="Agreed"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <br />
+
+
+            <asp:Label ID="Label39" runat="server" Text="Approved"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Label ID="Label40" runat="server" Text="NormСontroller"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            <br />
+
+            <asp:Button ID="addRouteCard" runat="server" Text="Add"  OnClick="addRouteCard_Click"/>
         </asp:Panel>
     </div>
 </asp:Content>

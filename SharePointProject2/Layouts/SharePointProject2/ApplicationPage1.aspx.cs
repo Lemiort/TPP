@@ -349,6 +349,9 @@ namespace SharePointProject2.Layouts.SharePointProject2
             //fill route
             foreach (var route in bd.Routes)
             {
+                //add to route card
+                this.routeCardRoute.Items.Add(
+                    new ListItem(route.RouteId.ToString(), route.RouteId.ToString()));
 
                 TableRow row = new TableRow();
 
@@ -396,7 +399,65 @@ namespace SharePointProject2.Layouts.SharePointProject2
 
                 routes.Rows.Add(row);
             }
-           
+
+
+            //fill routeCard
+            foreach (var rc in bd.RouteCars)
+            {
+
+                TableRow row = new TableRow();
+
+                TableCell cell1 = new TableCell();
+                cell1.Text = rc.RouteCarId.ToString();
+                row.Cells.Add(cell1);
+
+                TableCell cell2 = new TableCell();
+                cell2.Text = rc.RouteId.ToString();
+                row.Cells.Add(cell2);
+
+               
+                TableCell cell3 = new TableCell();
+                cell3.Text = rc.CompanyName;
+                row.Cells.Add(cell3);
+
+                TableCell cell4 = new TableCell();
+                cell4.Text = rc.Developer.ToString();
+                row.Cells.Add(cell4);
+
+                TableCell cell5 = new TableCell();
+                cell5.Text = rc.Checked.ToString();
+                row.Cells.Add(cell5);
+
+                TableCell cell6 = new TableCell();
+                cell6.Text = rc.Agreed.ToString();
+                row.Cells.Add(cell6);
+
+                TableCell cell7 = new TableCell();
+                cell7.Text = rc.Approved.ToString();
+                row.Cells.Add(cell7);
+
+                TableCell cell8 = new TableCell();
+                cell8.Text = rc.NormСontroller.ToString();
+                row.Cells.Add(cell8);
+
+                Button button = new Button();
+                button.Text = "Delete";
+                button.Click += (s, e1) =>
+                {
+                    TPP lbd = new TPP();
+                    lbd.RouteCars.Attach(rc);
+                    lbd.Entry(rc).State = System.Data.Entity.EntityState.Deleted;
+                    lbd.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                };
+
+                TableCell cell9 = new TableCell();
+                cell9.Controls.Add(button);
+                row.Cells.Add(cell9);
+
+                routeCards.Rows.Add(row);
+            }
+
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -504,6 +565,11 @@ namespace SharePointProject2.Layouts.SharePointProject2
             });
             bd.SaveChanges();
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void addRouteCard_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
